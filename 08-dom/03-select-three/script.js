@@ -10,5 +10,8 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    var allTarget = document.querySelectorAll('.target');
+    allTarget.forEach(element => {
+        element.innerHTML = "owned";
+    });
 })();

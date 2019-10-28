@@ -10,5 +10,46 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("target").innerHTML = "";
+    let myText = "Je suis un texte qui va apparaître dans un effet \"machine à écrire\"\, un peu comme dans les films noirs. Sauf que... je ne sais pas qui est l'assassin ! Y en a-t-il vraiment un ? Habite-t-il au 21 ? Que de mystères !";
+
+
+    //console.log(myText);
+    let numbLetter = myText.length;
+    var currentPos = 0;
+    var cursor = document.createElement("SPAN");
+    cursor.innerHTML = "&#x2588";
+    cursor.style.color = "black";
+    var cursorAnimFadeIn = setInterval(() => {
+        cursor.style.opacity = 1;
+    }, 600);
+    var cursorAnimFadeOut = setInterval(() => {
+        cursor.style.opacity = 0;
+    }, 500);
+
+    //console.log(cursor);
+    var increm = setInterval(function() {
+        // cursor
+        var curseur = setInterval(function() {
+            var myCursor = "ok";
+        }, 200);
+        if (currentPos == numbLetter - 1) {
+            clearInterval(increm);
+        }
+        affichage(currentPos);
+        currentPos++;
+    }, 500)
+
+
+
+    function affichage(posi) {
+        let textIt = document.getElementById("target").textContent;
+        let textToAff = textIt.split(cursor.innerHTML);
+
+        let finaltext = textToAff[0] + myText[posi];
+        //console.log(textToAff);
+        document.getElementById("target").innerHTML = finaltext;
+        document.getElementById("target").appendChild(cursor);
+    };
+
 })();

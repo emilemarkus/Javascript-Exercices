@@ -10,5 +10,19 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    //son âge, sexe et ville.
+    function questions() {
+        var age = prompt('Entrez votre âge : ');
+        var sexe = prompt('Entrez votre sexe :');
+        var city = prompt('Entrez votre ville :');
+        var message = 'Vous avez ' + age + ' ans\n' + 'Vous êtes de sexe' + sexe + '\nEt vous venez de ' + city;
+        var r = confirm(message);
+        if (r == true) {
+            alert("merci d'avoir confirmer !")
+        } else {
+            alert("vous devez confirmer vos données ! Recommençons !");
+            questions();
+        }
+    }
+    questions();
 })();

@@ -10,5 +10,10 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("pass-one").addEventListener("keyup", () => {
+        let maxLetter = 10;
+        document.getElementById("pass-one").setAttribute("maxlength", "10");
+        let totalOfLetter = document.getElementById("pass-one").value.length;
+        document.getElementById("counter").innerHTML = totalOfLetter + "/" + maxLetter;
+    });
 })();

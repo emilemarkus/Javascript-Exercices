@@ -10,5 +10,21 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    function question() {
+        var reponse = prompt("veux-tu du gâteaux ? oui ou non ?");
+        switch (reponse) {
+            case "oui":
+                alert("Bravo, vous avez raison, il est si bon...");
+                break;
+            case "non":
+                alert("Comment ça non, il est pas bon on gâteau ?");
+                break;
+            default:
+                alert("c'est oui ou non, mais je ceux une réponse clair ;)");
+                question();
+                break;
+
+        }
+    }
+    question();
 })();

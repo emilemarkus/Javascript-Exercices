@@ -15,6 +15,20 @@
             this.name = name;
             this.age = age;
         }
+        affichage() {
+            return (this.name + "-" + this.age);
+        }
+
     }
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        const chat1 = new Cat("Skitty", "9 ans");
+        const chat2 = new Cat("Pixel", "6 ans");
+
+
+
+        console.log(chat1.affichage());
+        console.log(chat2.affichage());
+
+
+    })
 })();

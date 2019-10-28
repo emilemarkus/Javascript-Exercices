@@ -12,7 +12,26 @@
 (() => {
     // to get the value of an input: document.getElementById("element-id").value
 
+    function compared(arrayNumber, n) {
+        for (var i = n; i < arrayNumber.length; i++) {
+            var numOne = parseInt(arrayNumber[i]);
+            var numTwo = parseInt(arrayNumber[i + 1]);
+            if (numOne > numTwo) {
+                arrayNumber.splice(i, 2, numTwo, numOne);
+                compared(arrayNumber, i);
+
+
+            }
+        }
+        document.getElementById('answers').innerText = "voici le tout trié : " + arrayNumber;
+    }
+
+
+
+
     document.getElementById("run").addEventListener("click", () => {
-        // your code here
+        var table = document.getElementById("numbers").value.split(",");
+        compared(table, 0);
+        // sinon il y avait "sort()" aussi :)
     });
 })();

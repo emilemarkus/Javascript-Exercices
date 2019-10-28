@@ -10,8 +10,7 @@
 // You will have time to focus on it later.
 
 (() => {
-    const people = [
-        {
+    const people = [{
             firstname: "Garald",
             lastname: "Freschi",
             email: "gfreschi0@discuz.net",
@@ -38,5 +37,9 @@
         },
     ];
 
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        people.forEach(element => {
+            console.log(element.lastname);
+        });
+    })
 })();

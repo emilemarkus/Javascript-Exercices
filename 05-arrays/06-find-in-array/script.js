@@ -10,8 +10,7 @@
 // You will have time to focus on it later.
 
 (() => {
-    const people = [
-        {
+    const people = [{
             firstname: "Bradford",
             lastname: "Coldbath",
             email: "bcoldbath0@wired.com",
@@ -88,5 +87,19 @@
         },
     ];
 
-    // your code here
+
+
+
+    document.getElementById("run").addEventListener("click", () => {
+        var filterArray = {
+            lastname: 'Dupont',
+            firstname: 'Jean'
+        }
+        var userFind = people.find(function(item) {
+            if ((item.lastname === filterArray.lastname) && (item.firstname === filterArray.firstname)) {
+                console.log(item.email + "\nEnregistrement n° " + people.indexOf(item));
+            }
+        });
+    });
+
 })();

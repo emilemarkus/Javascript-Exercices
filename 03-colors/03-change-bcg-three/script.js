@@ -10,5 +10,14 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        // we need the creat a random number with the higher value #ffffff;
+        var maxVal = parseInt("0xffffff");
+        // we make our random number
+        var randomVariable = Math.floor(Math.random() * maxVal);
+        // we creat our color variable
+        var randomColor = "#" + (randomVariable.toString(16));
+        document.body.style.backgroundColor = randomColor;
+    })
+
 })();

@@ -11,20 +11,46 @@
 
 (() => {
     // to get the value of an input: document.getElementById("element-id").value
+    var functionQuery;
 
+    function getValues() {
+        var valOne = parseInt(document.getElementById("op-one").value);
+        var valTwo = parseInt(document.getElementById("op-two").value);
+        switch (functionQuery) {
+            case "addition":
+                alert(valOne + valTwo);
+                break;
+            case "substraction":
+                alert(valOne - valTwo);
+                break;
+            case "multiplication":
+                alert(valOne * valTwo);
+                break;
+            case "division":
+                alert(valOne / valTwo);
+                break;
+        }
+    }
     document.getElementById("addition").addEventListener("click", () => {
-        // perform an addition
+        functionQuery = "addition";
+        getValues();
     });
 
     document.getElementById("substraction").addEventListener("click", () => {
-        // perform an substraction
+        functionQuery = "substraction";
+        getValues();
     });
 
     document.getElementById("multiplication").addEventListener("click", () => {
-        // perform an multiplication
+        functionQuery = "multiplication";
+        getValues();
     });
 
     document.getElementById("division").addEventListener("click", () => {
-        // perform an division
+        functionQuery = "division";
+        getValues();
     });
+
+
+
 })();

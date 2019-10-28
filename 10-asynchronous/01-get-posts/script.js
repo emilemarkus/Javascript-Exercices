@@ -6,9 +6,15 @@
  * started at 09/05/2019
  */
 
-// NOTE: don't focus on the existing code structure for now.
-// You will have time to focus on it later.
+// NOTE: don't focuconsoles on the existing code structure for now.
+// You will have time to focus on it la
 
-(() => {
-    // your code here
+
+(() => { // your code here
+    let err = "error";
+    document.getElementById('run').addEventListener('click', () => {
+        lib.getPosts((err, article) => {
+            console.log(article);
+        });
+    });
 })();

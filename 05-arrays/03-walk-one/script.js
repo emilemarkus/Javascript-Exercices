@@ -24,6 +24,11 @@
         "raisin",
         "cerise",
     ];
-
-    // your code here
+    var message = "";
+    document.getElementById("run").addEventListener("click", () => {
+        for (var i = 0; i < fruits.length; i++) {
+            message += fruits[i] + "\n";
+        }
+        console.log(message);
+    })
 })();

@@ -11,6 +11,16 @@
 
 (() => {
     document.getElementById("run").addEventListener("click", () => {
-        // your code here
+        var i = 0;
+        while (i <= 21) {
+            if (!(i % 2) && (i > 0)) {
+                var displayAnswer = document.getElementById("answers").innerText;
+                var newContent = displayAnswer + (i * i) + ",";
+                document.getElementById("answers").innerText = newContent;
+
+            }
+            i++;
+        }
+
     });
 })();

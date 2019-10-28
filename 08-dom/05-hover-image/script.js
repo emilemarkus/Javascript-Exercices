@@ -10,5 +10,14 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    let hoverLink = document.querySelector('img').getAttribute("data-hover");
+    let outLink = document.querySelector('img').src;
+    let targetImg = document.querySelector('img');
+    targetImg.addEventListener("mouseover", () => {
+        targetImg.src = hoverLink;
+    })
+    targetImg.addEventListener("mouseout", () => {
+        targetImg.src = outLink;
+    })
+
 })();

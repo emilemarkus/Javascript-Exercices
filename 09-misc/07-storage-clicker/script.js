@@ -10,5 +10,17 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+
+    varSess = sessionStorage.getItem('numClick');
+    console.log(varSess);
+    if (!(varSess)) varSess = 0;
+    document.getElementById("target").textContent = varSess;
+    //console.log(sessionStorage.getItem('numClick'));
+    document.getElementById("increment").addEventListener("mouseup", () => {
+        varSess++;
+        var newNumClick = document.getElementById("target").textContent = varSess;
+        console.log();
+        varSess
+        sessionStorage.setItem('numClick', varSess);
+    })
 })();

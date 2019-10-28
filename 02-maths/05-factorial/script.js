@@ -13,6 +13,13 @@
     // to get the value of an input: document.getElementById("element-id").value
 
     document.getElementById("run").addEventListener("click", () => {
-        // your code here
+        var userValue = document.getElementById('number').value;
+        var totalIs = userValue;
+        for (var i = userValue; i >= 2; i--) {
+            totalIs = totalIs * (i - 1);
+
+        }
+        console.log(totalIs);
+        document.getElementById("reponse").innerText = totalIs;
     });
 })();

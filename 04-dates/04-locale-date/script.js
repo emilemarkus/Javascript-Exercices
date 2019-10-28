@@ -10,6 +10,12 @@
 // You will have time to focus on it later.
 
 (() => {
-    // to change the content of a tag: document.getElementById("element-id").innerHTML = "new-value"
-    // your code here
+    var theMessage = "";
+    var monthFr = new Array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre");
+    var dayFr = new Array("dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche");
+    var toDay = new Date();
+    var frenchDate = dayFr[toDay.getDay()];
+    var frenchMonth = monthFr[toDay.getUTCMonth() - 1];
+    theMessage = frenchDate + " " + toDay.getDate() + " " + frenchMonth + " " + toDay.getUTCFullYear() + ", " + toDay.getHours() + "h" + toDay.getMinutes();
+    document.getElementById("target").innerHTML = theMessage;
 })();

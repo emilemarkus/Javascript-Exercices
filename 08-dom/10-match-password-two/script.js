@@ -10,5 +10,23 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let passOne = document.getElementById("pass-one").value;
+        let passTwo = document.getElementById("pass-two").value;
+        if ((passOne) && (passTwo)) {
+            if (passOne == passTwo) {
+                var allInput = document.querySelectorAll('input');
+                allInput.forEach(element => {
+                    element.classList.remove('error');
+                });
+            } else {
+                var allInput = document.querySelectorAll('input');
+                allInput.forEach(element => {
+                    element.classList.add('error');
+                });
+            }
+        } else {
+            alert("please fill this two input");
+        }
+    })
 })();

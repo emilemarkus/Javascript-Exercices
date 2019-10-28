@@ -10,5 +10,9 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+
+    document.getElementById("slider").addEventListener("input", () => {
+        let curseur = document.getElementById("slider").value;
+        document.getElementById("target").innerHTML = "+0" + curseur;
+    })
 })();

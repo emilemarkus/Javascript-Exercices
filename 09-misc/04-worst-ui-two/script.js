@@ -10,5 +10,30 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    // on creer un tableau avec les element button
+    let allButton = Array.from(document.querySelectorAll('button'));
+    // on créer une event pour chaque button;
+    allButton.forEach(element => { element.addEventListener("click", () => { changeValue(element); }) });
+    // onchange la valeur
+    function changeValue(targetButton) {
+        let maxVal = targetButton.getAttribute("data-max");
+        let minVal = targetButton.getAttribute("data-min");
+        let currentVal = targetButton.textContent;
+        currentVal++;
+        if (currentVal > maxVal) currentVal = minVal;
+        if (currentVal < 10) currentVal = "0" + currentVal;
+        targetButton.textContent = currentVal;
+        affValeurFinal();
+    }
+
+
+    // on afficher toute les valeurs associées
+    function affValeurFinal() {
+        let finalValue = "";
+        for (value of allButton) {
+            finalValue += value.textContent;
+        }
+        console.log(finalValue);
+        document.getElementById("target").textContent = "+0" + finalValue;
+    }
 })();

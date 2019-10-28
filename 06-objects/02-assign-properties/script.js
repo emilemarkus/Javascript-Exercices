@@ -11,20 +11,34 @@
 
 (() => {
     const computers = [
-        {id: "0001", available: false, user: "leny", os: "macOS"},
-        {id: "0002", available: false, user: "Nicolas"},
-        {id: "0003"},
-        {id: "0004", os: "Windows"},
-        {id: "0005"},
-        {id: "0006", os: "macOS"},
-        {id: "0007"},
-        {id: "0008"},
-        {id: "0009", available: false, user: "Anthony"},
+        { id: "0001", available: false, user: "leny", os: "macOS" },
+        { id: "0002", available: false, user: "Nicolas" },
+        { id: "0003" },
+        { id: "0004", os: "Windows" },
+        { id: "0005" },
+        { id: "0006", os: "macOS" },
+        { id: "0007" },
+        { id: "0008" },
+        { id: "0009", available: false, user: "Anthony" },
     ];
     const defaultProps = {
         available: true,
         os: "linux",
         user: null,
     };
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        computers.forEach(element => { // on parcours le tableau computers
+            let posAct = computers.indexOf(element); // on prend la position actuelle dans le tableau
+            for (key in defaultProps) { // on parcours les elements
+                if (element[key] === undefined) { // si la valeur key
+                    let keyTarget = element[key];
+                    computers[posAct][key] = defaultProps[key];
+                }
+            }
+        });
+        computers.forEach(element => {
+            console.log(element);
+        });
+    })
+
 })();

@@ -10,5 +10,14 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+
+    function changeColor(colorit) {
+        switch (colorit) {
+            case colorit:
+                document.body.style.backgroundColor = colorit;
+        }
+    }
+    Array.from(document.querySelectorAll(".actions button")).forEach($btn => {
+        $btn.addEventListener("click", () => (changeColor($btn.id), false), );
+    });
 })();

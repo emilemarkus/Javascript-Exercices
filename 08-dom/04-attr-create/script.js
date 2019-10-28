@@ -10,5 +10,10 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    var imgLink = document.getElementById("source").getAttribute("data-image");
+    var newImg = document.createElement("IMG");
+    newImg.src = imgLink;
+    document.getElementById("target").appendChild(newImg);
+
+
 })();

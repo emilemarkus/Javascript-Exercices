@@ -23,5 +23,18 @@
         "cerise",
     ];
 
-    // your code here
+    function aff() {
+        // we erase the first and last element of the array
+        fruits.splice(0, 1, "banane");
+        fruits.splice(9, 1, "kiwi");
+        var message = "";
+        fruits.forEach(element => {
+            message += element + "\n";
+        });
+
+        console.log(message);
+    }
+    document.getElementById("run").addEventListener("click", () => {
+        aff();
+    })
 })();

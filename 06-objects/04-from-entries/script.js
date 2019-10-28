@@ -12,5 +12,10 @@
 (() => {
     const keys = ["name", "species", "age", "gender", "color"];
     const values = ["Skitty", "cat", 9, "female", "tabby"];
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let mapArrays = keys.Object.formEntries(function(x, i) {
+            return "{" + keys[i] + ":" + values[i] + "}";
+        });
+        console.log(mapArrays);
+    })
 })();

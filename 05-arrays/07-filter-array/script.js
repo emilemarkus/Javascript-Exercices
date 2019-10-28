@@ -10,8 +10,7 @@
 // You will have time to focus on it later.
 
 (() => {
-    const people = [
-        {
+    const people = [{
             firstname: "Dreddy",
             lastname: "Nussgen",
             age: 70,
@@ -88,5 +87,15 @@
         },
     ];
 
-    // your code here
+
+
+    document.getElementById("run").addEventListener("click", () => {
+        let newArray = new Array();
+        var arrayFilter = people.filter(function(item) {
+            if (item.age > 18) {
+                newArray.push(item);
+            }
+        })
+        console.log(newArray);
+    })
 })();

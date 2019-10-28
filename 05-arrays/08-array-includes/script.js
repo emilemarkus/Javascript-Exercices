@@ -25,5 +25,20 @@
         "cerise",
     ];
 
-    // your code here
+
+    document.getElementById("run").addEventListener("click", () => {
+        let wordToFind = "pomme";
+        var existe = false;
+        let findIt = fruits.find(function(item) {
+            if (item === wordToFind) {
+                existe = true;
+            }
+        });
+        if (existe) {
+            console.log("oui, le mot " + wordToFind + " existe bien dans le tableau");
+        } else {
+            console.log("non, le mot " + wordToFind + " n'existe pas dans le tableau");
+        }
+
+    })
 })();

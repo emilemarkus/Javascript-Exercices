@@ -10,5 +10,22 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+
+    document.getElementById("pass-one").addEventListener("keyup", () => {
+        let currenNumber = 0;
+        let minLetter = 8;
+        let inputValue = document.getElementById("pass-one").value;
+        for (let i = 0; i <= inputValue.length; i++) {
+            if (Number(inputValue[i])) {
+                currenNumber++;
+            }
+            if ((inputValue.length >= minLetter) && (currenNumber >= 2)) {
+                document.getElementById("validity").innerHTML = "ok";
+            } else {
+                document.getElementById("validity").innerHTML = "pas ok";
+
+            }
+
+        }
+    });
 })();

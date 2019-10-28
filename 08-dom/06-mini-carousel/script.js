@@ -17,6 +17,15 @@
         "../../_shared/img/lemon.svg",
         "../../_shared/img/map.svg",
     ];
-
-    // your code here
+    let maxImg = gallery.length - 1;
+    let currentPos = 0;
+    document.getElementById("next").addEventListener("click", () => {
+        if (currentPos >= maxImg) {
+            currentPos = 0;
+        } else {
+            currentPos++;
+        }
+        console.log(currentPos);
+        document.querySelector('img').src = gallery[currentPos];
+    })
 })();
