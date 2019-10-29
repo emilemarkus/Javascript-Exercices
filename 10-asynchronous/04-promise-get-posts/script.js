@@ -11,8 +11,8 @@
 
 (() => {
     document.getElementById("run").addEventListener("click", () => {
-        lib.getPosts(resolve, reject) {
-
-        }
-    })
+        lib.getPosts().then((articles) => {
+            console.log(articles);
+        })
+    }, 1000)
 })();

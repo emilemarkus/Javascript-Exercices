@@ -10,5 +10,17 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let myFunc = async() => {
+            try {
+                const result = await lib.getPersons();
+                console.log(result);
+            } catch (e) {
+                console.error(`erreur synch : ${e}`);
+            }
+
+
+        }
+        myFunc();
+    })
 })();

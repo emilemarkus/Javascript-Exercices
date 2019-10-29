@@ -10,5 +10,21 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let myFunction = async() => {
+            let objectId = []
+            const result = await lib.getPosts();
+            if (result) {
+                for (article of result) {
+                    objectId.push(article.id);
+                    for (id of objectId) {
+                        const resultComm = await lib.getComments(id);
+                        article.comments = resultComm;
+                    }
+                    console.log(article);
+                }
+            }
+        }
+        myFunction();
+    })
 })();

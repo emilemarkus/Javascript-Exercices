@@ -11,10 +11,9 @@
 
 (() => {
     document.getElementById("run").addEventListener("click", () => {
-        let erreur = "erreur callback getPersons";
         lib.getPersons((erreur, personnes) => {
             if (erreur) {
-                console.error(erreur);
+                console.error(`Error callBack personnes is ${personnes}`);
             } else {
                 console.log(personnes);
             }

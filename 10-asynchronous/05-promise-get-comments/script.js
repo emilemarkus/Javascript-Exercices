@@ -10,5 +10,20 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let arrayOfPpost = [];
+        lib.getPosts().then((articles) => {
+            for (const article of articles) {
+                arrayOfPpost.push(article.id);
+                for (const id of arrayOfPpost) {
+                    lib.getComments(id).then((commentaire) => {
+                        article.comments = commentaire;
+                    })
+                }
+
+            }
+
+            console.log(articles);
+        })
+    })
 })();

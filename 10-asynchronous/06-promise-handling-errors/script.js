@@ -10,5 +10,16 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+
+        lib.getPersons()
+            .then((personnes) => {
+                console.log(personnes);
+            })
+            .catch((err) => {
+                console.error("erreur de promise");
+            })
+
+    })
+
 })();
