@@ -10,5 +10,14 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let erreur = "erreur callback getPersons";
+        lib.getPersons((erreur, personnes) => {
+            if (erreur) {
+                console.error(erreur);
+            } else {
+                console.log(personnes);
+            }
+        }, 2000)
+    })
 })();

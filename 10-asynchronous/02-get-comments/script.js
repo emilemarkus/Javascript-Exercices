@@ -10,15 +10,22 @@
 // You will have time to focus on it later.
 
 (() => {
-    let objectComments = [];
     document.getElementById("run").addEventListener("click", () => {
+        let objectComments = [];
         lib.getPosts((_, articles) => {
-            console.log(articles);
-            objectComments += articles.id;
-        });
-        while (objectComments) {
-            console.log(objectComments);
-        }
+            for (const article of articles) {
+                objectComments.push(article.id);
+                for (const id of objectComments) {
+                    lib.getComments(id, (_, commentaires) => {
+                        article.comments = commentaires;
+                    })
+                }
+                console.log(article);
+            }
 
+        })
+
+
+        // console.log(objectComments);
     })
 })();

@@ -24,24 +24,41 @@
             rollername: "roller" + i,
             rollerstatus: false,
             maxval: theInput.getAttribute("data-max"),
-            minVal: theInput.getAttribute("data-min")
+            minVal: theInput.getAttribute("data-min"),
+            thevalue: theInput.value
         });
         rollIt(i, theInput, theInput.getAttribute("data-max"), theInput.getAttribute("data-min"), "roller" + i);
         i++;
     });
 
+    function updateText(textTarget, targetValue) {
+        let newContent = "+";
+
+        for (elem of theArray) {
+            newContent += elem.thevalue;
+        }
+        document.getElementById("target").textContent = newContent;
+
+
+        //console.log(contentAll.slice(1, targetToSplice));
+    }
+
+    // on lance les rollers
     function rollIt(j, target, theMax, theMin, rollername) {
         theButton.addEventListener("click", () => {
             if (theArray[j].rollerstatus == false) {
                 clearInterval(theArray[j].rollername);
                 theArray[j].rollerstatus = true;
-                console.log(theArray[j].rollerstatus);
+                theArray[j].thevalue = document.getElementById(theArray[j].inputTarget).value;
+                //console.log(theArray[j].rollerstatus);
+                updateText(j, theArray[j].inputTarget);
             } else {
                 theArray[j].rollerstatus = false;
                 rollIt(j, target, theMax, theMin, rollername);
             }
 
         })
+
         let current = target.value;
         let intervalle = 200 + (50 * i);
         theArray[j].rollername = setInterval(() => {
