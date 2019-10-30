@@ -10,5 +10,27 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let userId = document.getElementById("hero-id").value;
+        //console.log(userId);
+        fetch("http://localhost:3000/heroes")
+            .then(function(reponse) {
+                reponse.json().then(function(data) {
+                    if (!data[userId]) {
+                        throw `Pas de heros avec cette id`
+                    } else {
+                        document.getElementById("target").innerHTML = `
+                        <li class="hero">
+                            <h4 class="title">
+                                <strong class="name">${data[userId].name}</strong>
+                                <em class="alter-ego">${data[userId].alterEgo}</em>
+                            </h4>
+                            <p class="powers">${data[userId].abilities}</p>
+                        </li>`
+                    }
+                })
+            })
+
+    })
+
 })();

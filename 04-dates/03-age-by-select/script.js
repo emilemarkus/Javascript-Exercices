@@ -40,16 +40,17 @@
                 numOfDayInYear += tempoDate.getDate();
             }
             // a chaque année bissextile on increment de un jour la valeur day;
-            if (numOfDayInYear = 366) nbOfDay++;
+            if (numOfDayInYear == 366) nbOfDay++;
             // on vieillie d'un an et des fois un jour
             nbOfYear++;
         }
+        //console.log(nbOfDay);
         // on ajoute les mois et jours de cette année aux compteurs
         nbOfMonth += currentDate.getMonth();
         nbOfDay += currentDate.getDate();
         // si l'anniversaire n'est pas encore passée on retire un an 
         let userMonthStart = parseInt(userMonth - 1);
-        console.log(userMonthStart + "-" + currentDate.getMonth());
+        //console.log(userMonthStart + "-" + currentDate.getMonth());
         if (userMonthStart > currentDate.getMonth()) {
             nbOfYear--;
         } else {

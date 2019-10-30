@@ -10,5 +10,34 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    function appendIdCard(name, alter, power) {
+
+        document.getElementById("target").innerHTML = templaetToPending;
+    }
+
+    document.getElementById("run").addEventListener("click", () => {
+        let objectHeroes = [];
+        let addToPage = "";
+        fetch("http://localhost:3000/heroes")
+            .then(function(reponse) {
+                reponse.json().then(function(data) {
+                    console.log(data);
+                    for (namer of data) {
+                        addToPage += `<li class="hero">
+                                <h4 class="title">
+                                    <strong class="name">${namer.name}</strong>
+                                    <em class="alter-ego">${namer.alterEgo}</em>
+                                </h4>
+                                <p class="powers">${namer.abilities}</p>
+                            </li>`;
+                    }
+                    document.getElementById("target").innerHTML = addToPage;
+                })
+
+            })
+
+
+
+
+    })
 })();

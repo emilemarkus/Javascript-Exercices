@@ -10,5 +10,37 @@
 // You will have time to focus on it later.
 
 (() => {
-    // your code here
+    document.getElementById("run").addEventListener("click", () => {
+        let toAdd = [];
+        let flagEmpty = "true";
+        let emptyInput = Array.from(document.querySelectorAll("input"));
+        for (flag of emptyInput) {
+            if (flag.value == "") { flagEmpty = false; }
+        }
+        //si on a bien renseigner tout les champs
+        if (flagEmpty) {
+            // on fetch
+            fetch("http://localhost:3000/heroes")
+                .then(function(reponse) {
+                    reponse.json().then(function(data) {
+                        // console.log(data.length);
+                        data.push({
+                            "id": (data.length) + 1,
+                            "name": document.getElementById('hero-name').value,
+                            "alterEgo": document.getElementById('hero-alter-ego').value,
+                            "abilities": (document.getElementById('hero-powers').value).split(',')
+                        })
+                        let parsedData = JSON.stringify(toAdd);
+                        //console.log(parsedData);
+                        console.log(data);
+                    })
+
+                })
+
+        } else {
+            alert("Veuillez renseigner tout les champs");
+        }
+
+
+    })
 })();
