@@ -10,26 +10,31 @@
 // You will have time to focus on it later.
 
 (() => {
-    document.getElementById("run").addEventListener("click", () => {
+    document.getElementById("run").addEventListener("click", async() => {
         let valeToDel = document.getElementById("hero-id").value;
-        let arrayData = [];
-        fetch("http://localhost:3000/heroes")
-            .then(function(reponse) {
-                reponse.json().then(function(data) {
-                    if ((valeToDel > 0) && (valeToDel <= data.length)) {
-                        for (record of data) {
-                            console.log(record.id);
-                            if (record.id == valeToDel) data.splice(valeToDel - 1, 1);
-                            // data.splice(0, 1);
-                            arrayData.push(data);
+        let adress = "http://localhost:3000/heroes/" + valeToDel;
+        // initialisation du fetch
+        // initialisation de la méthode fetch
+        let myInit = {
+            method: 'delete',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Origin': '*'
+            }
+        }
 
-                        }
-                        console.log(data);
+        try {
+            let deleteApi = await fetch(adress, myInit)
+                .then(function(erreur) {
+                    if ((erreur.status) == 404) {
+                        alert("cet Id n'existe pas");
                     }
+                })
+        } catch (e) {
+            console.error(`error${e}`)
+        }
 
-                }, 2000)
 
-            })
 
 
         //console.log(arrayData);
